@@ -28,6 +28,43 @@ def listar_tareas():
 def completar_tarea():
     id_tarea = int(input("Ingrese el ID de la tarea a completar: "))
     tareas[id_tarea]["estado"] = "completada"
+    
+    # Función para eliminar una tarea
+def eliminar_tarea():
+    id_tarea = int(input("Ingrese el ID de la tarea a eliminar: "))
+    del tareas[id_tarea]
+    
+    # Función para editar una tarea
+def editar_modificar():
+    id_tarea = int(input("Ingrese el ID de la tarea a editar: "))
+    
+
+# Menú principal
+while True:
+    print("**Sistema de gestión de tareas**")
+    print("1. Agregar tarea")
+    print("2. Listar tareas")
+    print("3. Completar tarea")
+    print("4. Eliminar tarea")
+    print("5. Salir")
+
+    opcion = int(input("Seleccione una opción: "))
+
+    if opcion == 1:
+        agregar_tarea()
+    elif opcion == 2:
+        listar_tareas()
+    elif opcion == 3:
+        completar_tarea()
+    elif opcion == 4:
+        eliminar_tarea()
+    elif opcion == 5:
+        break
+    else:
+        print("Opción no válida.")
+
+print("¡Hasta luego!")
+
 
 
 
