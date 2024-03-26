@@ -38,6 +38,36 @@ def eliminar_tarea():
 def editar_modificar():
     id_tarea = int(input("Ingrese el ID de la tarea a editar: "))
     
+def editar_modificar():
+    id_tarea = int(input("Ingrese el ID de la tarea a editar: "))
+
+    # Validar si el ID de la tarea es válido
+    if 0 <= id_tarea < len(tareas):
+        tarea = tareas[id_tarea]
+
+        print(f"1. Editar descripción (actual: {tarea['descripcion']})")
+        print(f"2. Editar fecha límite (actual: {tarea['fecha_limite'].strftime('%Y-%m-%d')})")
+        print(f"3. Editar estado (actual: {tarea['estado']})")
+        print("4. Cancelar edición")
+
+        opcion_edicion = int(input("Seleccione una opción de edición: "))
+
+        if opcion_edicion == 1:
+            nueva_descripcion = input("Ingrese la nueva descripción: ")
+            tarea['descripcion'] = nueva_descripcion
+        elif opcion_edicion == 2:
+            nueva_fecha_limite = input("Ingrese la nueva fecha límite (formato YYYY-MM-DD): ")
+            tarea['fecha_limite'] = datetime.strptime(nueva_fecha_limite, "%Y-%m-%d")
+        elif opcion_edicion == 3:
+            nuevo_estado = input("Ingrese el nuevo estado: ")
+            tarea['estado'] = nuevo_estado
+        elif opcion_edicion == 4:
+            print("Edición cancelada.")
+        else:
+            print("Opción no válida.")
+    else:
+        print("ID de tarea no válido.")    
+    
 
 # Menú principal
 while True:
